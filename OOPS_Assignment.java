@@ -436,7 +436,9 @@ class Professor extends Person1
     }
 }
 
-//PART B Abstraction
+//************************** PART B Abstraction ******************************************//
+//Create an abstract class Animal with an abstract method makeSound(). Create Dog and Cat classes that implement
+//this method. Test both classes
 
 abstract class Animal2 {
 
@@ -468,6 +470,565 @@ class Cat extends Animal2 {
         }
 
 }
+
+//Create an abstract class Vehicle with an abstract method startEngine() and a concrete method stopEngine(). Create
+//Car and Bike classes and implement startEngine() in each
+
+abstract class Vehicle1
+{
+    abstract void startEngine();
+    void stopEngine()
+    {
+         System.out.println("stop vehicle");
+    }
+}
+class Car1 extends Vehicle1
+{
+   @Override
+    void startEngine()
+   {
+       System.out.println("Start car");
+   }
+}
+class Bike extends Vehicle1
+{
+    @Override
+    void startEngine()
+    {
+        System.out.println("Start Bike");
+    }
+
+    public static void main(String[] args) {
+        Vehicle1 veh = new Car1();
+        veh.startEngine();
+        veh.stopEngine();
+
+        Car1 ca = new Car1();
+        ca.startEngine();
+        ca.stopEngine();
+
+        Bike bi = new Bike();
+        bi.startEngine();
+        bi.stopEngine();
+    }
+}
+
+//Create an abstract class Employee with a constructor that initializes an employee name. Create a Developer class that
+ //       extends it. Create a Developer object and observe the constructor execution.
+
+abstract class Employee2
+{
+    String employee_name;
+
+    Employee2(String name)
+    {
+       employee_name = name;
+       System.out.println("Employee constructor executed");
+    }
+}
+class Developer1 extends Employee2
+{
+    Developer1(String name)
+    {
+        super(name);
+        System.out.println("Developer constructor executed");
+    }
+
+        public static void main(String[] args)
+        {
+            Developer1 dev = new Developer1("sowmya");
+
+            System.out.println("Employee Name: " + dev.employee_name);
+        }
+
+
+}
+
+//Create an abstract class Shape with an abstract method draw(). Create Circle and Rectangle classes that implement
+//draw(). Use a Shape reference to call the methods of both child objects.
+
+abstract class Shape1
+{
+    abstract  void draw();
+
+}
+class Circle extends Shape1
+{
+    @Override
+    void draw() {
+        System.out.println("This is draw of a circle");
+    }
+}
+class Rectangle1 extends Shape1
+{
+    @Override
+    void draw() {
+        System.out.println("This is draw of a rectangle");
+    }
+
+    public static void main(String[] args) {
+        Shape1 shape;
+
+        shape = new Circle();
+        shape.draw();
+        shape = new Rectangle1();
+        shape.draw();
+
+    }
+}
+
+//Create an interface Payment with a method pay(double amount). Implement it in CreditCardPayment and
+//UPIPayment. Display a different payment message for each implementation
+
+interface Payment
+{
+    void pay(double amount);
+
+}
+class CreditCardPayment implements Payment
+{
+    @Override
+    public void pay(double amount) {
+        System.out.println("This is pay method of Creditcard payment class: " + amount);
+    }
+}
+class UPIPayment implements Payment
+{
+    @Override
+    public void pay(double amount) {
+        System.out.println("This is pay method of UPIpayment class: " + amount);
+    }
+
+    public static void main(String[] args) {
+           CreditCardPayment cc = new CreditCardPayment();
+           cc.pay(5000);
+           UPIPayment up = new UPIPayment();
+           up.pay(6000);
+    }
+}
+
+//Explain the differences between an abstract class and an interface in Java. Write a small example demonstrating when
+//each might be useful.
+
+//Abstract class: Used when related classes share common properties and behaviours.
+//Interface: Used when different classes need to follow the same contract or implement common functionality.
+
+
+//Create an abstract class Notification with an abstract method sendNotification(). Create EmailNotification,
+//SMSNotification, and PushNotification classes that implement the method differently.
+
+abstract class Notification {
+
+    abstract void sendNotification();
+}
+
+class EmailNotification extends Notification {
+
+    @Override
+    void sendNotification() {
+        System.out.println("This is an EmailNotification");
+    }
+}
+
+class SMSNotification extends Notification {
+
+    @Override
+    void sendNotification() {
+        System.out.println("This is an SMSNotification");
+    }
+}
+
+class PushNotification extends Notification {
+
+    @Override
+    void sendNotification() {
+        System.out.println("This is a PushNotification");
+    }
+
+        public static void main(String[] args) {
+
+            Notification notification;
+
+            notification = new EmailNotification();
+            notification.sendNotification();
+
+            notification = new SMSNotification();
+            notification.sendNotification();
+
+            notification = new PushNotification();
+            notification.sendNotification();
+        }
+
+}
+
+
+//Create an interface Database with methods connect() and disconnect(). Implement the interface in MySQLDatabase
+//and OracleDatabase. Test both implementations.
+
+interface Database
+{
+    void connect();
+    void disconnect();
+}
+class MySQLDatabase implements Database
+{
+    @Override
+    public void connect() {
+        System.out.println("This is MYSQLDatabase connect method");
+    }
+
+    @Override
+    public void disconnect() {
+        System.out.println("This is MYSQLDatabase disconnect method");
+
+    }
+}
+class OracleDatabase implements Database
+{
+    @Override
+    public void connect() {
+        System.out.println("This is OracleDatabase connect method");
+    }
+
+    @Override
+    public void disconnect() {
+        System.out.println("This is OracleDatabase disconnect method");
+
+    }
+
+    public static void main(String[] args) {
+
+        MySQLDatabase mysql = new MySQLDatabase();
+        mysql.connect();
+        mysql.disconnect();
+
+
+        OracleDatabase oracle = new OracleDatabase();
+        oracle.connect();
+        oracle.disconnect();
+
+    }
+}
+
+//Create an abstract class Shape with an abstract method calculateArea(). Implement it in Circle and Rectangle.
+//Calculate and display the area of each shape.
+
+abstract class Shape2
+{
+    abstract void calculateArea();
+}
+class Circle1 extends Shape2
+{
+    @Override
+    void calculateArea() {
+        System.out.println("Area of a circle");
+    }
+}
+class Rectangle5 extends Shape2
+{
+    @Override
+    void calculateArea() {
+        System.out.println("Area of a rectangle");
+
+    }
+
+    public static void main(String[] args) {
+        Shape2 shp2 ;
+
+        shp2 = new Rectangle5();
+        shp2.calculateArea();
+
+        shp2 = new Circle1();
+        shp2.calculateArea();
+
+    }
+}
+
+
+//***********************  PART C   *********************************************//
+
+//Create an abstract class BaseTest with an abstract method executeTest() and a concrete method startTest(). Create
+//LoginTest and CheckoutTest classes that implement executeTest(). Test both using a BaseTest reference.
+
+abstract class BaseTest
+{
+    abstract void executeTest();
+
+    void startTest()
+    {
+        System.out.println("start test base test");
+    }
+}
+
+class LoginTest extends BaseTest
+{
+    @Override
+    void executeTest() {
+
+        System.out.println("This is BaseLogintest");
+    }
+
+    @Override
+    void startTest() {
+        super.startTest();
+        System.out.println("This is starttest of logintest");
+    }
+}
+class CheckoutTest extends BaseTest
+{
+    @Override
+    void executeTest() {
+
+        System.out.println("This is BaseCheckoutTest");
+    }
+
+    @Override
+    void startTest() {
+        super.startTest();
+        System.out.println("This is starttest of CheckoutTest");
+    }
+
+    public static void main(String[] args) {
+        BaseTest bt;
+         bt = new LoginTest();
+         bt.startTest();
+         bt.executeTest();
+
+         bt = new CheckoutTest();
+         bt.startTest();
+         bt.executeTest();
+    }
+}
+
+//Create an abstract class Browser with abstract methods launch() and close(). Create ChromeBrowser and
+//FirefoxBrowser classes and implement both methods. Test each browser implementation
+
+abstract class Browser
+{
+    abstract void launch();
+    abstract void close();
+
+}
+class ChromeBrowser extends Browser
+{
+    @Override
+    void launch() {
+        System.out.println("Chromebrowser launch");
+    }
+
+    @Override
+    void close() {
+        System.out.println("Chromebrowser close");
+
+    }
+}
+class FirefoxBrowser extends Browser
+{
+    @Override
+    void launch() {
+        System.out.println("FirefoxBrowser launch");
+
+    }
+    @Override
+    void close() {
+        System.out.println("FirefoxBrowser close");
+
+    }
+
+    public static void main(String[] args) {
+        Browser bro;
+
+        bro = new ChromeBrowser();
+        bro.launch();
+        bro.close();
+
+        bro = new FirefoxBrowser();
+        bro.launch();
+        bro.close();
+
+    }
+}
+
+//Create an interface ApiTest with methods sendRequest() and validateResponse(). Implement it in GetApiTest and
+//PostApiTest. Display suitable messages for each operation.
+
+
+interface ApiTest
+{
+     void sendRequest();
+     void ValidateResponse();
+}
+class GetApiTest implements ApiTest
+{
+    @Override
+    public void sendRequest() {
+        System.out.println("GetAPI Sendrequest");
+    }
+
+    @Override
+    public void ValidateResponse() {
+        System.out.println("GetAPI Validateresponse");
+
+    }
+}
+class PostApiTest implements ApiTest
+{
+    @Override
+    public void sendRequest() {
+        System.out.println("PostApiTest Sendrequest");
+    }
+
+    @Override
+    public void ValidateResponse() {
+        System.out.println("PostApiTest Validateresponse");
+
+    }
+
+    public static void main(String[] args) {
+
+        ApiTest api;
+
+        api = new GetApiTest();
+        api.sendRequest();
+        api.ValidateResponse();
+
+        api=new PostApiTest();
+        api.sendRequest();
+        api.ValidateResponse();
+
+    }
+}
+
+//Create an abstract class LoginTest with an abstract method validateLogin(). Create ValidLoginTest and
+//InvalidLoginTest classes with different implementations. Test both classes and display the results.
+
+abstract class LoginTest1
+{
+    abstract void validateLogin();
+}
+class ValidLoginTest extends LoginTest1
+{
+    @Override
+    void validateLogin() {
+        System.out.println("Valid credentials");
+    }
+}
+class InvalidLoginTest extends LoginTest1
+{
+    @Override
+    void validateLogin() {
+        System.out.println("In-Valid credentials");
+
+    }
+
+    public static void main(String[] args) {
+        LoginTest1 login;
+        login = new ValidLoginTest();
+        login.validateLogin();
+
+        login = new InvalidLoginTest();
+        login.validateLogin();
+    }
+}
+
+//Create an abstract class Report with an abstract method generateReport() and a concrete method printHeader().
+//Create HtmlReport and PdfReport classes that implement generateReport(). Use a Report reference to test both
+//implementations.
+
+abstract  class  Report
+{
+    abstract void generateReport();
+    void printHeader()
+    {
+          System.out.println("Print Header");
+    }
+}
+class HtmlReport extends Report
+{
+    @Override
+    void generateReport() {
+        System.out.println("HTML Report");
+    }
+
+    @Override
+    void printHeader() {
+        super.printHeader();
+        System.out.println("HTML Report header");
+
+    }
+}
+class PdfReport extends Report
+{
+    @Override
+    void generateReport() {
+        System.out.println("PDF Report");
+
+    }
+
+    @Override
+    void printHeader() {
+        super.printHeader();
+        System.out.println("PDF Report header");
+
+    }
+
+    public static void main(String[] args) {
+        Report rep ;
+        rep = new HtmlReport();
+        rep.generateReport();
+        rep.printHeader();
+
+        rep = new PdfReport();
+        rep.generateReport();
+        rep.printHeader();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
