@@ -60,3 +60,29 @@ class BankAccount1
         bnk.deposit("Sowmya",100000);
     }
 }
+
+//Create a Rectangle class with length and breadth. Add methods to calculate area and perimeter. Create an object and call
+//both methods
+
+class rect{
+
+
+    double areaa(double length,double breadth)
+    {
+        double area = length * breadth;
+        return area;
+
+    }
+    double perimeter(double length,double breadth)
+    {
+        double peri = 2 * length + breadth;
+        return peri;
+    }
+
+    public static void main(String[] args) {
+        rect ar = new rect();
+        System.out.println(ar.areaa(10,20));
+
+        System.out.println(ar.perimeter(10,20));
+    }
+}
